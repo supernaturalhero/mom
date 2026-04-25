@@ -3,123 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Mom - Love, Care, and Strength</title>
+  <meta name="description" content="Happy Birthday Mom! A celebration of love, joy, and special moments" />
+  <meta name="theme-color" content="#ff69b4" />
+  <title>Happy Birthday Mom!</title>
   <style>
+    /* ===== CSS Variables & Root Styles ===== */
     :root {
-      --soft-pink: #f7d9e3;
-      --warm-beige: #f5ede7;
-      --deep-rose: #b45f7b;
-      --earth-brown: #5b3a3a;
-      --shadow: 0 18px 50px rgba(91, 58, 58, 0.18);
+      --bright-pink: #ff69b4;
+      --party-blue: #00bfff;
+      --sunny-yellow: #ffd700;
+      --gold: #daa520;
+      --shadow: 0 18px 50px rgba(255, 105, 180, 0.18);
+      --shadow-hover: 0 24px 60px rgba(255, 105, 180, 0.2);
       --radius: 28px;
+      --transition: 0.25s ease;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
+    /* ===== Global Reset ===== */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ===== Body & Background ===== */
     body {
       position: relative;
       min-height: 100vh;
-      background: radial-gradient(circle at top left, rgba(255, 205, 227, 0.28), transparent 32%),
-                  radial-gradient(circle at bottom right, rgba(234, 186, 196, 0.22), transparent 30%),
-                  linear-gradient(180deg, #fff0f3 0%, #f7e0ea 100%);
+      background: 
+        radial-gradient(circle at top left, rgba(255, 105, 180, 0.3), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(0, 191, 255, 0.25), transparent 30%),
+        linear-gradient(180deg, #fff8dc 0%, #ffe4e1 50%, #e6e6fa 100%);
       color: #4f3b4f;
       line-height: 1.6;
     }
 
-    body::before,
-    body::after {
-      content: '🌹';
-      position: absolute;
-      font-size: 8rem;
-      opacity: 0.12;
-      pointer-events: none;
-    }
-
-    body::before {
-      top: 16px;
-      left: 18px;
-      transform: rotate(-20deg);
-    }
-
-    body::after {
-      bottom: 20px;
-      right: 24px;
-      transform: rotate(18deg);
-    }
-
+    /* ===== Main Container ===== */
     .page {
       position: relative;
       max-width: 1180px;
       margin: 0 auto;
       padding: 28px 20px 48px;
+      z-index: 1;
     }
 
-    .page::before {
-      content: '🌹';
-      position: absolute;
-      top: 180px;
-      right: 24px;
-      font-size: 7rem;
-      opacity: 0.08;
-      pointer-events: none;
-    }
-
-    .rose-accent {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.95rem;
-      padding: 10px 18px;
-      border-radius: 999px;
-      background: rgba(255, 223, 236, 0.9);
-      border: 1px solid rgba(180, 95, 123, 0.15);
-      color: #9a3159;
-      margin-bottom: 18px;
-    }
-
-    .rose-accent::before {
-      content: '🌹';
-      font-size: 1.1rem;
-    }
-
+    /* ===== Section Styling ===== */
     .section {
       margin-top: 48px;
       display: grid;
       gap: 28px;
-      padding: 28px 28px 32px;
+      padding: 28px;
       background: rgba(255, 255, 255, 0.82);
       border: 1px solid rgba(180, 95, 123, 0.12);
       border-radius: 32px;
-      box-shadow: 0 16px 40px rgba(91, 58, 58, 0.08);
+      box-shadow: var(--shadow);
     }
 
-    header {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: center;
-      padding: 32px 0;
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      color: #5a2a41;
     }
 
+    /* ===== Navigation Bar ===== */
     .topbar {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       gap: 16px;
-      margin-bottom: 18px;
+      margin-bottom: 0;
       padding: 18px 22px;
-      background: rgba(255,255,255,0.9);
+      background: rgba(255, 255, 255, 0.95);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       position: sticky;
-      top: 16px;
-      z-index: 10;
+      top: 0;
+      z-index: 100;
       backdrop-filter: blur(12px);
     }
 
@@ -133,6 +98,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+      list-style: none;
     }
 
     .nav-links a {
@@ -140,16 +106,25 @@
       color: #5a2a41;
       padding: 10px 16px;
       border-radius: 999px;
-      transition: background 0.25s ease, color 0.25s ease;
+      transition: background var(--transition), color var(--transition);
       font-weight: 600;
+      display: inline-block;
     }
 
     .nav-links a:hover,
+    .nav-links a:focus-visible,
     .nav-links a.active {
       background: #fde8ef;
       color: #b45f7b;
+      outline: none;
     }
 
+    .nav-links a:focus-visible {
+      outline: 2px solid #b45f7b;
+      outline-offset: 2px;
+    }
+
+    /* ===== Header Section ===== */
     header {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -160,7 +135,7 @@
 
     .hero-text {
       padding: 24px;
-      background: rgba(255,255,255,0.8);
+      background: rgba(255, 255, 255, 0.8);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       backdrop-filter: blur(8px);
@@ -170,6 +145,7 @@
       font-size: clamp(2.8rem, 4vw, 4.2rem);
       margin-bottom: 16px;
       color: #5a2a41;
+      line-height: 1.2;
     }
 
     .hero-text p {
@@ -200,12 +176,7 @@
       min-height: 420px;
     }
 
-    .section h2 {
-      font-size: 2rem;
-      margin-bottom: 12px;
-      color: #5a2a41;
-    }
-
+    /* ===== Card Grid ===== */
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -217,12 +188,13 @@
       border-radius: var(--radius);
       padding: 24px;
       box-shadow: var(--shadow);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transition: transform var(--transition), box-shadow var(--transition);
     }
 
-    .card:hover {
+    .card:hover,
+    .card:focus-within {
       transform: translateY(-6px);
-      box-shadow: 0 24px 60px rgba(91, 58, 58, 0.2);
+      box-shadow: var(--shadow-hover);
     }
 
     .card h3 {
@@ -230,6 +202,11 @@
       color: #733a52;
     }
 
+    .card p {
+      color: #5c434f;
+    }
+
+    /* ===== Video Section ===== */
     .video-card {
       grid-column: 1 / -1;
       padding: 0;
@@ -260,6 +237,17 @@
       border-radius: 0 0 32px 32px;
     }
 
+    .video-fallback a {
+      color: #b45f7b;
+      text-decoration: underline;
+      transition: color var(--transition);
+    }
+
+    .video-fallback a:hover,
+    .video-fallback a:focus-visible {
+      color: #733a52;
+    }
+
     .video-info {
       padding: 22px 24px 24px;
       color: #5c434f;
@@ -270,17 +258,7 @@
       color: #70363f;
     }
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-      margin-top: 18px;
-    }
-
-    .card p {
-      color: #5c434f;
-    }
-
+    /* ===== Gallery ===== */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -293,10 +271,19 @@
       border-radius: 24px;
       display: block;
       object-fit: cover;
-      min-height: 220px;
+      aspect-ratio: 3 / 4;
+      min-height: 280px;
       box-shadow: var(--shadow);
+      transition: transform var(--transition);
+      cursor: pointer;
     }
 
+    .gallery img:hover,
+    .gallery img:focus-visible {
+      transform: scale(1.05);
+    }
+
+    /* ===== Footer ===== */
     footer {
       margin-top: 48px;
       padding: 26px 24px;
@@ -306,119 +293,343 @@
       color: #5a2a41;
     }
 
+    /* ===== Responsive Design ===== */
+    @media (max-width: 1024px) {
+      .page {
+        padding: 20px 16px 40px;
+      }
+
+      .section {
+        padding: 24px;
+        gap: 24px;
+      }
+
+      .section h2 {
+        font-size: 1.6rem;
+      }
+    }
+
     @media (max-width: 840px) {
       header {
         grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 8px;
+      }
+
+      .nav-links a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+
+      .hero-text h1 {
+        font-size: clamp(2rem, 3vw, 2.8rem);
+      }
+
+      .hero-image img {
+        min-height: 300px;
+      }
+
+      .cards {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+
+      .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 16px;
+      }
+
+      .gallery img {
+        min-height: 220px;
+      }
+
+      .video-card {
+        min-height: 280px;
+        aspect-ratio: auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding: 16px 12px 32px;
+      }
+
+      .topbar {
+        padding: 14px 16px;
+        top: 0;
+      }
+
+      .logo {
+        font-size: 1rem;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+      }
+
+      .section {
+        padding: 18px;
+        gap: 18px;
+        margin-top: 32px;
+      }
+
+      .section h2 {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+      }
+
+      .hero-text {
+        padding: 16px;
+      }
+
+      .hero-text h1 {
+        font-size: clamp(1.6rem, 2.5vw, 2rem);
+      }
+
+      .hero-text p {
+        font-size: 0.95rem;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 18px;
+      }
+
+      .card h3 {
+        font-size: 1.05rem;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .gallery img {
+        min-height: 180px;
+        border-radius: 16px;
+      }
+
+      .video-card {
+        min-height: 220px;
+      }
+
+      .video-info {
+        padding: 16px;
+      }
+
+      .video-info h3 {
+        font-size: 1rem;
+      }
+
+      footer {
+        padding: 18px 16px;
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .hero-text h1 {
+        font-size: 1.4rem;
+      }
+
+      .section h2 {
+        font-size: 1.2rem;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links a {
+        padding: 5px 8px;
+        font-size: 0.8rem;
+      }
+    }
+
+    /* ===== Accessibility: Reduced Motion ===== */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
       }
     }
   </style>
 </head>
 <body>
   <main class="page">
+    <!-- Navigation Bar -->
     <div class="topbar">
-      <div class="logo">Mom's Love</div>
-      <nav class="nav-links">
-        <a href="#home" class="active">Home</a>
-        <a href="#about">About</a>
-        <a href="#care">Care</a>
-        <a href="#kindness">Kindness</a>
-        <a href="#gallery">Gallery</a>
+      <div class="logo">Happy Birthday Mom!</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+        </ul>
       </nav>
     </div>
 
+    <!-- Hero Section -->
     <section id="home" class="section">
       <header>
         <div class="hero-text">
-          <div class="rose-accent">Roses for Mom</div>
-          <span class="accent">A tribute to my mom</span>
-          <h1>She is gentle, strong, and always caring.</h1>
-          <p>My mom fills every room with warmth, kindness, and support. She nurtures our family with love, patience, and a beautiful smile.</p>
-          <p>Here is a celebration of how she takes care of us, helps whenever we need it, and makes the world feel safe.</p>
+          <span class="accent">A special celebration for an amazing mom</span>
+          <h1>Happy Birthday, Mom!</h1>
+          <p>Today is your special day! We celebrate the incredible woman who fills our lives with love, joy, and endless support.</p>
+          <p>Thank you for being the best mom ever. May your birthday be filled with happiness, laughter, and all the love you deserve!</p>
         </div>
         <div class="hero-image">
-          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80" alt="Mother and child holding hands" />
+          <img src="IMG_1992.jpg" alt="Mother and child celebrating birthday" />
         </div>
       </header>
     </section>
 
+    <!-- Birthday Wishes Section -->
     <section id="about" class="section">
-      <h2>About Mom</h2>
-      <p>My mom is the heart of our family. She is patient, loving, and always ready to encourage us to be our best selves.</p>
-    </section>
-
-    <section id="care" class="section">
-      <h2>How she takes care of us</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>Home filled with warmth</h3>
-          <p>Her home is a place where laughter echoes, comfort is easy to find, and every family member is celebrated.</p>
-        </article>
-        <article class="card">
-          <h3>Supports our dreams</h3>
-          <p>She encourages us to learn, grow, and believe in ourselves with every step we take.</p>
-        </article>
-        <article class="card">
-          <h3>Everyday help</h3>
-          <p>Whether she is cooking, helping with homework, or offering a hug, she is always there when we need her.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="kindness" class="section">
-      <h2>Kind and Loving</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>Gentle heart</h3>
-          <p>Her kindness is gentle and steady. Even on the hardest days, she shows understanding and love.</p>
-        </article>
-        <article class="card">
-          <h3>Beautiful strength</h3>
-          <p>Her strength is quiet but powerful. She is beautiful inside and out, and we are grateful for her light.</p>
-        </article>
-        <article class="card">
-          <h3>Always listening</h3>
-          <p>She listens with her whole heart and makes everyone feel heard and cared for.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="gallery" class="section">
-      <div class="rose-accent">Roses for Mom</div>
-      <h2>Beautiful moments</h2>
-      <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=700&q=80" alt="Mother smiling" />
-        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=700&q=80" alt="Mom and daughter doing crafts" />
-        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=700&q=80" alt="Family together" />
-        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=700&q=80" alt="Mother hugging child" />
-      </div>
-      <article class="card video-card">
-        <iframe src="https://www.youtube.com/embed/8F3fA4kBfLg" title="What Moms Do For Us" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <div class="video-info">
-          <h3>A moms tribute</h3>
-          <p>This video shows what moms do for us: how they care for us, teach us, support us, and make our family feel loved every day.</p>
+      <header>
+        <div class="hero-text">
+          <span class="accent">A heartfelt message for your special day</span>
+          <h1>Celebrating an Amazing Mom</h1>
+          <p>Happy Birthday to our truly incredible and deeply cherished mom! Today, we come together with hearts full of love and gratitude to celebrate the wonderful woman who fills our lives with endless happiness, laughter, warmth, and joy.</p>
+          <p>Your remarkable strength, endless kindness, and constant support inspire us each and every day. Through every challenge and every triumph, you have stood by our side with unwavering love and encouragement.</p>
+          <p>Thank you for every lesson you have taught us—for showing us the importance of kindness, the value of hard work, and the beauty of loving others with all our hearts.</p>
+          <p>On this special day, we celebrate not only your birthday but also the amazing person you are. May your day be filled with as much love, happiness, and joy as you have given to all of us throughout the years.</p>
         </div>
-      </article>
-      <div class="video-fallback">
-        If the video does not load here, click this link to watch it on YouTube: <a href="https://www.youtube.com/watch?v=8F3fA4kBfLg" target="_blank" rel="noopener">Watch moms tribute video</a>
+        <div class="hero-image">
+          <img src="IMG_9153.JPG" alt="Mom's warm smile" />
+        </div>
+      </header>
+    </section>
+
+    <!-- Birthday Celebration Section -->
+    <section id="care" class="section">
+      <h2>Birthday Celebration</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Birthday Cake</h3>
+          <p>A delicious cake to celebrate your special day! Let's make a wish and blow out the candles together.</p>
+        </article>
+        <article class="card">
+          <h3>Balloons & Decorations</h3>
+          <p>The house is filled with colorful balloons and decorations to make your birthday extra festive!</p>
+        </article>
+        <article class="card">
+          <h3>Gifts & Surprises</h3>
+          <p>Special gifts and surprises prepared with lots of love, just for you on your birthday.</p>
+        </article>
       </div>
     </section>
 
+    <!-- Birthday Messages Section -->
+    <section id="kindness" class="section">
+      <h2>Birthday Messages</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Happy Birthday, Mom!</h3>
+          <p>You are the best mom ever! Wishing you a birthday filled with joy, love, and all your favorite things.</p>
+        </article>
+        <article class="card">
+          <h3>Thank You for Everything</h3>
+          <p>Thank you for your endless love and care. You make every day special. Happy Birthday!</p>
+        </article>
+        <article class="card">
+          <h3>You Deserve the Best</h3>
+          <p>May your birthday be as amazing as you are. We love you so much!</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Gallery & Video Section -->
+    <section id="gallery" class="section">
+      <h2>Cherished Moments</h2>
+      <div class="gallery">
+        <img src="PHOTO-2026-04-22-14-09-00.jpg" alt="Recent family moment" />
+        <img src="PHOTO-2026-04-20-12-39-10.jpg" alt="Beautiful family gathering" />
+        <img src="PHOTO-2026-01-01-20-09-20.jpg" alt="New Year celebration with mom" />
+        <img src="IMG_9153.JPG" alt="Mom's warm smile" />
+        <img src="IMG_7616.PNG" alt="Mother smiling" />
+        <img src="IMG_7498.jpg" alt="Family together" />
+        <img src="IMG_5026.JPG" alt="Cherished memory" />
+        <img src="IMG_4595.JPG" alt="Loving moment" />
+        <img src="IMG_4153.JPG" alt="Family joy" />
+        <img src="IMG_3984.JPG" alt="Mom's care" />
+        <img src="IMG_3890.PNG" alt="Beautiful family time" />
+        <img src="IMG_3773.JPG" alt="Happy family" />
+        <img src="IMG_3765.JPG" alt="Mom and family" />
+        <img src="IMG_3622.JPG" alt="Family celebration" />
+        <img src="IMG_3554.JPG" alt="Loving family" />
+        <img src="IMG_3079.JPG" alt="Family together" />
+        <img src="IMG_2932.PNG" alt="Mom's kindness" />
+        <img src="IMG_2684.jpg" alt="Mom and daughter doing crafts" />
+        <img src="IMG_1992.jpg" alt="Family together" />
+      </div>
+      
+      <article class="card video-card">
+        <img src="https://img.youtube.com/vi/mre-dzATn5Y/maxresdefault.jpg" alt="Video thumbnail" style="width: 100%; border-radius: 24px; margin-top: 18px; box-shadow: 0 18px 50px rgba(91, 58, 58, 0.18);" />
+        
+        <iframe src="https://www.youtube.com/embed/mre-dzATn5Y" title="What Moms Do For Us" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </article>
+      
+      <div class="video-info">
+        <h3>Happy Birthday Mom!</h3>
+        <p>This special video celebrates all the love and joy you bring to our lives. Happy Birthday to the most amazing mom!</p>
+      </div>
+      <div class="video-fallback">
+        If the video does not load here, <a href="https://www.youtube.com/watch?v=8F3fA4kBfLg" target="_blank" rel="noopener noreferrer">watch the moms tribute video on YouTube</a>.
+      </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-      <p>Thank you, Mom, for every hug, every smile, and every quiet moment of care. You make our family brighter every day.</p>
+      <p>Happy Birthday, Mom! We love you more than words can say. May your day be filled with joy and your year with happiness!</p>
     </footer>
   </main>
+
+  <!-- Navigation Script -->
   <script>
+    // Get all navigation links
     const links = document.querySelectorAll('.nav-links a');
+
+    // Function to update active nav link based on current URL hash
     function setActive() {
       const hash = window.location.hash || '#home';
+      
       links.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === hash);
+        const isActive = link.getAttribute('href') === hash;
+        link.classList.toggle('active', isActive);
+        link.setAttribute('aria-current', isActive ? 'page' : 'false');
       });
     }
-    links.forEach(link => link.addEventListener('click', () => {
-      setTimeout(setActive, 20);
-    }));
+
+    // Update active link when user clicks a nav link
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        setTimeout(setActive, 20);
+      });
+    });
+
+    // Update active link when browser hash changes
     window.addEventListener('hashchange', setActive);
+    
+    // Set initial active link on page load
     setActive();
   </script>
 </body>
